@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "sourceMap": true,
+    "lib": ["ES6", "ES7", "DOM"],
+    "moduleResolution": "node",
+    "sourceRoot": "src",
+    "outDir": "build",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules", "lib", "build", "dist"
+  ]
+}

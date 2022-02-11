@@ -1,0 +1,27 @@
+{
+  "description": "Part of SKSQL. Subscribe to a queue and launch instances of SKServer on demand",
+  "author": {
+    "name": "ARaffy"
+  },
+  "name": "SKDirector",
+  "version": "1.0.0",
+  "main": "lib/main.js",
+  "scripts": {
+    "01-SKDirector-build": "tsc",
+    "03-SKDirector-run": "cross-env SKD_LOGPATH='C:\\SKSQL_DBS\\Logs\\SKDirector' SKD_DBVAULT='C:\\SKSQL_DBS\\Vault' node build/main.js",
+    "04-": "cpy package.json.template dist --rename=package.json"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "sksql": "file:../sksql",
+    "ws": "^8.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "@types/cross-spawn": "^6.0.2",
+    "cpy-cli": "^3.1.1",
+    "cross-env": "^7.0.3",
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
