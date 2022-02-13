@@ -72,7 +72,7 @@ export function spawnDocumentWorker(worker_id: number,
                                 "--env " + `SKDB_PATH=/data` +
                                 "--env " + `SKWORKER_ALIVE=${alive} ` +
                                 "--env " + `SKWORKER_PORT=${port}` +
-                                "skeletapp/SKServer:latest " +
+                                "skeletapp/skserver:latest " +
                                 //"/bin/bash";
                                 "node build/main.js";
                             exec_cmd(execParams).then((content) => {

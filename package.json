@@ -4,16 +4,15 @@
     "name": "ARaffy"
   },
   "name": "SKDirector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/main.js",
   "scripts": {
     "01-SKDirector-build": "tsc",
-    "03-SKDirector-run": "cross-env SKD_LOGPATH='C:\\SKSQL_DBS\\Logs\\SKDirector' SKD_DBVAULT='C:\\SKSQL_DBS\\Vault' node build/main.js",
-    "04-": "cpy package.json.template dist --rename=package.json"
+    "03-SKDirector-run": "cross-env SKD_LOGPATH='C:\\SKSQL_DBS\\Logs\\SKDirector' SKD_DBVAULT='C:\\SKSQL_DBS\\Vault' node build/main.js"
   },
   "dependencies": {
     "cross-spawn": "^7.0.3",
-    "sksql": "file:../sksql",
+    "sksql": "^1.1.1",
     "ws": "^8.4.2"
   },
   "devDependencies": {
