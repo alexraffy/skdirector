@@ -21,7 +21,7 @@ export function spawnDocumentWorker(worker_id: number,
                                     alive: number): Promise<boolean> {
     let worker_name = "SKServer_" + account_id.toString() + "_" + database_id.toString() + "_" + port.toString();
     console.log(worker_name);
-    const dbPath = path.normalize(process.env.SKD_DBVAULT + "/" + account_id.toString() + "/" + database_id.toString());
+    const dbPath = path.normalize(global["DBVAULT"] + "/" + account_id.toString() + "/" + database_id.toString());
     return new Promise<boolean>( (resolveSpawn, rejectSpawn) => {
         runSerial(
             [

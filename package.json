@@ -8,7 +8,7 @@
   "main": "lib/main.js",
   "scripts": {
     "01-SKDirector-build": "tsc",
-    "03-SKDirector-run": "cross-env SKD_LOGPATH='C:\\SKSQL_DBS\\Logs\\SKDirector' SKD_DBVAULT='C:\\SKSQL_DBS\\Vault' node build/main.js"
+    "03-SKDirector-run": "node build/main.js --log='C:\\SKSQL_DBS\\Logs\\SKDirector' --vault='C:\\SKSQL_DBS\\Vault'"
   },
   "dependencies": {
     "cross-spawn": "^7.0.3",
