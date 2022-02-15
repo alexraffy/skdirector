@@ -3,6 +3,7 @@ import {exec_cmd, run_cmd} from "../run_cmd";
 import * as path from "path";
 import * as fs from "fs";
 import {getContainersList} from "./getContainersList";
+import {Logger} from "../Logger";
 
 
 function runSerial(tasks: (() => Promise<void>)[]) {
@@ -20,7 +21,7 @@ export function spawnDocumentWorker(worker_id: number,
                                     port: number,
                                     alive: number): Promise<boolean> {
     let worker_name = "SKServer_" + account_id.toString() + "_" + database_id.toString() + "_" + port.toString();
-    console.log(worker_name);
+    Logger.instance.write("Spawning ", worker_name);
     const dbPath = path.normalize(global["DBVAULT"] + "/" + account_id.toString() + "/" + database_id.toString());
     return new Promise<boolean>( (resolveSpawn, rejectSpawn) => {
         runSerial(
@@ -28,10 +29,10 @@ export function spawnDocumentWorker(worker_id: number,
                 () => {
                     return new Promise<void>((resolve, reject) => {
                         run_cmd("whoami", []).then((c) => {
-                            console.log("I am " + c.content);
+                            Logger.instance.write("I am " + c.content);
                             resolve();
                         }).catch(() => {
-                            console.log("I don't know who I am.")
+                            Logger.instance.write("I don't know who I am.")
                             reject();
                         })
                     })
@@ -39,6 +40,7 @@ export function spawnDocumentWorker(worker_id: number,
                 // does the document exists
                 () => {
                     return new Promise<void>((resolve, reject) => {
+                        Logger.instance.write("Checking ", dbPath);
                         if (!fs.existsSync(dbPath)) {
                             fs.mkdirSync(dbPath);
                             resolve();
