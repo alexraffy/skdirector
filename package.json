@@ -4,16 +4,17 @@
     "name": "ARaffy"
   },
   "name": "SKDirector",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "private": true,
   "main": "lib/main.js",
   "scripts": {
     "01-SKDirector-build": "tsc",
-    "03-SKDirector-run": "node build/main.js --log='C:\\SKSQL_DBS\\Logs\\SKDirector' --vault='C:\\SKSQL_DBS\\Vault'"
+    "03-SKDirector-testrun": "node build/main.js --log='C:\\SKSQL_DBS\\Logs\\SKDirector' --vault='C:\\SKSQL_DBS\\Vault'",
+    "04-SKDirector-run": "node build/main.js --log='/opt/data/DBVault/sandbox/Logs/SKDirector' --vault='/opt/data/DBVault/sandbox/Vault'"
   },
   "dependencies": {
     "cross-spawn": "^7.0.3",
-    "sksql": "^1.1.5",
+    "sksql": "^1.1.9",
     "ws": "^8.4.2"
   },
   "devDependencies": {
