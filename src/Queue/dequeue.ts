@@ -16,7 +16,10 @@ export function dequeue(db: SKSQL) {
     }
     let data = readTableAsJSON(db, ret.resultTableName);
     st.close();
-
+    if (data.length === 0) {
+        Logger.instance.write("nada.");
+        return;
+    }
 
     if (data.length > 0 && data[0].account_id !== undefined) {
         let worker_name = "SKServer_" + data[0].account_id.toString() + "_" + data[0].database_id.toString() + "_" + data[0].toString();
