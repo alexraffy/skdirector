@@ -55,7 +55,7 @@ function start() {
             Logger.instance.write("ERROR: " + error);
         },
         on(db: SKSQL, databaseHashId: string, message: string, payload: any) {
-            console.log(message);
+            //console.log(message);
             if (message === WSRSQL) {
                 dequeue(db);
             }

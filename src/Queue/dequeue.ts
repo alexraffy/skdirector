@@ -5,6 +5,7 @@ import {getContainersList} from "../Containers/getContainersList";
 
 
 export function dequeue(db: SKSQL) {
+    Logger.instance.write("dequeue");
 
     let sql = "Execute usp_dequeue;";
     let st = new SQLStatement(db, sql);
@@ -15,8 +16,6 @@ export function dequeue(db: SKSQL) {
     }
     let data = readTableAsJSON(db, ret.resultTableName);
     st.close();
-
-
 
 
     if (data.length > 0 && data[0].account_id !== undefined) {
