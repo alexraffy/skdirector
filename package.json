@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "cross-spawn": "^7.0.3",
-    "sksql": "^1.1.10",
+    "sksql": "^1.1.12",
     "ws": "^8.4.2"
   },
   "devDependencies": {
