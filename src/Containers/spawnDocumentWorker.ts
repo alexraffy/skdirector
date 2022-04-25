@@ -21,7 +21,7 @@ export function spawnDocumentWorker(worker_id: number,
                                     port: number,
                                     alive: number): Promise<boolean> {
     let worker_name = "SKServer_" + account_id.toString() + "_" + database_id.toString() + "_" + port.toString();
-    Logger.instance.write("Spawning ", worker_name);
+    Logger.instance.write("Preparing ", worker_name);
     const dbPath = path.normalize(global["DBVault"] + "/" + account_id.toString() + "/" + database_id.toString());
     return new Promise<boolean>( (resolveSpawn, rejectSpawn) => {
         runSerial(
@@ -77,6 +77,7 @@ export function spawnDocumentWorker(worker_id: number,
                                 "skeletapp/skserver:latest " +
                                 //"/bin/bash";
                                 "node build/main.js";
+                            Logger.instance.write("Spawning ", worker_name);
                             exec_cmd(execParams).then((content) => {
                                 console.log(content.content);
                                 resolve();
