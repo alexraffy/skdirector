@@ -81,7 +81,8 @@ export function spawnDocumentWorker(worker_id: number,
                             exec_cmd(execParams).then((content) => {
                                 console.log(content.content);
                                 resolve();
-                            }).catch(() => {
+                            }).catch((reason) => {
+                                Logger.instance.write("Error spawning: ", reason);
                                 reject();
                             })
                         }).catch(() => {
