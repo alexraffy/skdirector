@@ -73,10 +73,10 @@ export function spawnDocumentWorker(worker_id: number,
                                 "--env " + `SKWORKER_ID=${worker_id} ` +
                                 "--env " + `SKDB_PATH=/data` +
                                 "--env " + `SKWORKER_ALIVE=${alive} ` +
-                                "--env " + `SKWORKER_PORT=${port}` +
+                                "--env " + `SKWORKER_PORT=${port} ` +
+                                "--env SKWORKER_HEARTBEAT=ws://localhost:30000 " +
                                 "skeletapp/skserver:latest " +
-                                "/bin/bash";
-                                //"node build/main.js";
+                                "node build/main.js";
                             Logger.instance.write("Spawning ", worker_name);
                             exec_cmd(execParams).then((content) => {
                                 console.log(content.content);
